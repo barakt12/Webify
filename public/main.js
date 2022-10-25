@@ -1,6 +1,9 @@
-import { carService } from './services/car.service.js'
-
-
-carService.query()
-    .then(cars => {
-    })
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', async () => {
+    try {
+      const reg = await navigator.serviceWorker.register('./serviceworker.js')
+    } catch (err) {
+      throw err
+    }
+  })
+}
