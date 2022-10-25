@@ -29,14 +29,14 @@ function doLog(level, ...args) {
     const userId = store?.loggedinUser?._id
     const str = userId ? `(userId: ${userId})` : ''
     line = `${getTime()} - ${level} - ${line} ${str}\n`
-    fs.appendFile('./logs/backend.log', line, (err) =>{
+    fs.appendFile('./logs/backend.log', line, (err) => {
         if (err) console.log('FATAL: cannot write to log file')
     })
 }
 
 module.exports = {
     debug(...args) {
-        if (process.env.NODE_NEV === 'production') return
+        if (process.env.NODE_ENV === 'production') return
         doLog('DEBUG', ...args)
     },
     info(...args) {
