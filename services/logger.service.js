@@ -5,7 +5,7 @@ const utilService = require('./util.service')
 
 const logsDir = './logs'
 if (!fs.existsSync(logsDir)) {
-    fs.mkdirSync(logsDir)
+    // fs.mkdirSync(logsDir)
 }
 
 //define the time format
